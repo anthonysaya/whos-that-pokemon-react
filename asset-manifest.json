@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/whos-that-pokemon-react/static/css/main.f855e6bc.css",
-    "main.js": "/whos-that-pokemon-react/static/js/main.60f48296.js",
+    "main.css": "/whos-that-pokemon-react/static/css/main.3477296d.css",
+    "main.js": "/whos-that-pokemon-react/static/js/main.aad997b9.js",
     "static/js/453.f0027151.chunk.js": "/whos-that-pokemon-react/static/js/453.f0027151.chunk.js",
-    "static/media/logo.svg": "/whos-that-pokemon-react/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/headerlogo.png": "/whos-that-pokemon-react/static/media/headerlogo.499c5d095ae36a660235.png",
+    "static/media/pokeball.png": "/whos-that-pokemon-react/static/media/pokeball.6f8aedac5fbcd9353dd5.png",
     "index.html": "/whos-that-pokemon-react/index.html",
-    "main.f855e6bc.css.map": "/whos-that-pokemon-react/static/css/main.f855e6bc.css.map",
-    "main.60f48296.js.map": "/whos-that-pokemon-react/static/js/main.60f48296.js.map",
+    "main.3477296d.css.map": "/whos-that-pokemon-react/static/css/main.3477296d.css.map",
+    "main.aad997b9.js.map": "/whos-that-pokemon-react/static/js/main.aad997b9.js.map",
     "453.f0027151.chunk.js.map": "/whos-that-pokemon-react/static/js/453.f0027151.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.60f48296.js"
+    "static/css/main.3477296d.css",
+    "static/js/main.aad997b9.js"
   ]
 }
