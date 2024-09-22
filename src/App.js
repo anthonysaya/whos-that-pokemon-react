@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./headerlogo.png";
+import Display from "./Display.js";
+import GUI from "./GUI.js";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header className="Header">
+        <img className="Header-image" src={logo} alt="Who's That Pokémon?" />
       </header>
-    </div>
+      <Display />
+      <GUI />
+      <footer className="Footer">
+        This is a free interactive web project created for educational purposes.
+        The Pokémon logo and all related names and characters are TM and
+        copyright The Pokémon Company and its respective owners (Nintendo, Game
+        Freak, CREATURES Inc.) © 1996-2024. All rights reserved. Poké Ball
+        silhouette created by Iconic of The Noun Project (CC-BY-3.0). Pokémon
+        images and additional data queried from PokéAPI.
+      </footer>
+    </>
   );
 }
 

@@ -1,0 +1,84 @@
+.UI {
+  margin: 16px;
+}
+
+.UI-name {
+  margin-bottom: 16px;
+  text-align: center;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.UI-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+}
+
+.UI-sideCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.UI-stat,
+.UI-button {
+  width: 160px;
+  border-radius: 15px;
+  padding: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.UI-stat {
+  border-radius: 15px;
+  padding: 8px;
+  background-color: #50ce9f;
+  color: #fff;
+}
+
+.UI-guessBox {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.UI-inputBox {
+  height: 2rem;
+  width: 100%;
+  max-width: 250px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 1rem;
+  color: #000;
+  background-color: #fff;
+}
+
+.UI-submit {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 15px;
+  background-color: #fff;
+  padding: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.UI-button {
+  background-color: #fff;
+}
+
+/* Mobile styles */
+
+@media (max-width: 991px) {
+  .UI-name {
+    font-size: 32px;
+  }
+
+  .UI-guessBox {
+    order: -1;
+    width: 100%;
+  }
+}

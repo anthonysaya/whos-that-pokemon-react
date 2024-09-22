@@ -1,0 +1,74 @@
+.Main {
+  display: grid;
+  margin: 0 auto;
+  max-width: 1112px;
+  padding: 0 32px;
+  grid-template-areas:
+    "hint1 image hint4"
+    "hint2 image hint5"
+    "hint3 image hint6";
+  grid-template-columns: 268px auto 268px;
+  gap: 16px;
+  grid-auto-flow: column;
+  align-items: center;
+}
+
+.Main-imageWrapper {
+  display: flex;
+  grid-area: image;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-image: url("pokeball.png");
+}
+
+.Main-image {
+  filter: brightness(0%);
+  width: 100%;
+}
+
+.Main-hintBox {
+  display: flex;
+  margin-left: 25%;
+  height: 64px;
+  border-radius: 15px;
+  padding: 0 16px;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  background-color: #50ce9f;
+  color: #fff;
+}
+
+.Main-hintBox:nth-child(odd) {
+  margin-left: 0;
+  margin-right: 25%;
+}
+
+@media (max-width: 991px) {
+  .Main {
+    width: 100%;
+    grid-template-areas:
+      "image image"
+      "hint1 hint2"
+      "hint3 hint4"
+      "hint5 hint6";
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
+
+  .Main-image {
+    max-width: 256px;
+  }
+
+  .Main-hintBox,
+  .Main-hintBox:nth-child(odd) {
+    margin: 0;
+    height: 48px;
+    width: 100%;
+    max-width: 268px;
+  }
+}
