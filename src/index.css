@@ -1,5 +1,4 @@
 /* Default browser style resets */
-
 * {
   box-sizing: border-box;
 }
@@ -24,7 +23,8 @@ button {
 /* Site styles */
 
 html,
-body {
+body,
+#root {
   height: 100%;
 }
 
@@ -35,7 +35,7 @@ html {
   background-image: linear-gradient(#d7f89f, #96e6cb);
 }
 
-body {
+#root {
   display: flex;
   flex-direction: column;
 }

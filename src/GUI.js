@@ -1,39 +1,79 @@
+import { useState } from "react";
 import "./GUI.css";
-function GUI() {
+import { nameArray } from "./nameArray.js";
+function GUI(props) {
+  const [userInput, setUserInput] = useState("");
+  function handleUserInput(e) {
+    setUserInput(e.target.value);
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (!props.revealed) {
+      setUserInput("");
+      props.onGuess(userInput);
+    } else {
+      return;
+    }
+  }
+
+  function handleQuitNext() {
+    props.onQuitNext();
+  }
+
+  function handleHintButton() {
+    props.onHintButton();
+  }
+
   return (
     <>
-      <section class="UI">
-        <section class="UI-name" id="name">
-          ???
+      <section className="UI">
+        <section className="UI-name" id="name">
+          {props.revealed ? (
+            <a href={props.bulbaLink} target="_blank">
+              {props.displayName}
+            </a>
+          ) : (
+            props.displayName
+          )}
         </section>
-        <section class="UI-inputs">
-          <div class="UI-sideCol">
-            <div class="UI-stat" id="correct">
-              Correct Guesses: 0
+        <section className="UI-inputs">
+          <div className="UI-sideCol">
+            <div className="UI-stat" id="correct">
+              Correct Guesses: {props.numCorrect}
             </div>
-            <div class="UI-stat" id="wrong">
-              Wrong Guesses: 0
+            <div className="UI-stat" id="wrong">
+              Wrong Guesses: {props.numWrong}
             </div>
           </div>
-          <form class="UI-guessBox" id="form">
+          <form className="UI-guessBox" id="form">
             <input
-              class="UI-inputBox"
+              className="UI-inputBox"
               type="text"
               list="pokeList"
               id="inputBox"
               name="inputBox"
+              onChange={handleUserInput}
+              value={userInput}
             />
-            <datalist id="pokeList"></datalist>
-            <button class="UI-submit" id="submit">
+            <datalist id="pokeList">
+              {nameArray.map((name) => (
+                <option>{name}</option>
+              ))}
+            </datalist>
+            <button className="UI-submit" id="submit" onClick={handleSubmit}>
               Submit
             </button>
           </form>
-          <div class="UI-sideCol">
-            <button class="UI-button" id="hint">
+          <div className="UI-sideCol">
+            <button className="UI-button" id="hint" onClick={handleHintButton}>
               Hint
             </button>
-            <button class="UI-button" id="quitNext">
-              Give Up
+            <button
+              className="UI-button"
+              id="quitNext"
+              onClick={handleQuitNext}
+            >
+              {props.quitNext}
             </button>
           </div>
         </section>
