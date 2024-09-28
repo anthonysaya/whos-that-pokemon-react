@@ -45,6 +45,8 @@ function App() {
       setWrongGuess(false);
       setRevealed(true);
       setNumCorrect(numCorrect + 1);
+      setHintVisible(true);
+      setHintCount(6);
     } else if (guess != pokemon.name) {
       setWrongGuess(true);
       setHintCount(Math.min(hintCount + 1, 6));
