@@ -56,8 +56,8 @@ function GUI(props) {
               value={userInput}
             />
             <datalist id="pokeList">
-              {nameArray.map((name) => (
-                <option>{name}</option>
+              {nameArray.map((name, i) => (
+                <option key={"#" + i}>{name}</option>
               ))}
             </datalist>
             <button className="UI-submit" id="submit" onClick={handleSubmit}>

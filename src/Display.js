@@ -13,22 +13,22 @@ function Display(props) {
           />
         </figure>
         <div className="Main-hintBox" id="hint1">
-          {props.hintCount >= 1 && props.hintVisible ? props.hint1 : ""}
+          {props.hintCount >= 1 ? props.hint1 : ""}
         </div>
         <div className="Main-hintBox" id="hint2">
-          {props.hintCount >= 2 && props.hintVisible ? props.hint2 : ""}
+          {props.hintCount >= 2 ? props.hint2 : ""}
         </div>
         <div className="Main-hintBox" id="hint3">
-          {props.hintCount >= 3 && props.hintVisible ? props.hint3 : ""}
+          {props.hintCount >= 3 ? props.hint3 : ""}
         </div>
         <div className="Main-hintBox" id="hint4">
-          {props.hintCount >= 4 && props.hintVisible ? props.hint4 : ""}
+          {props.hintCount >= 4 ? props.hint4 : ""}
         </div>
         <div className="Main-hintBox" id="hint5">
-          {props.hintCount >= 5 && props.hintVisible ? props.hint5 : ""}
+          {props.hintCount >= 5 ? props.hint5 : ""}
         </div>
         <div className="Main-hintBox" id="hint6">
-          {props.hintCount >= 6 && props.hintVisible ? props.hint6 : ""}
+          {props.hintCount >= 6 ? props.hint6 : ""}
         </div>
       </main>
     </>

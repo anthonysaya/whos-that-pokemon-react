@@ -13,7 +13,6 @@ function App() {
   const [wrongGuess, setWrongGuess] = useState(false);
 
   const [hintCount, setHintCount] = useState(0);
-  const [hintVisible, setHintVisible] = useState(false);
   const [hint1, setHint1] = useState("");
   const [hint2, setHint2] = useState("");
   const [hint3, setHint3] = useState("");
@@ -22,12 +21,22 @@ function App() {
   const [hint6, setHint6] = useState("");
 
   const hintFunc = async () => {
-    setHint1(await pokemon.getType1());
-    setHint2(await pokemon.getType2());
-    setHint3(await pokemon.getHeight());
-    setHint4(await pokemon.getWeight());
-    setHint5(await pokemon.getGeneration());
-    setHint6(await pokemon.getSpecies());
+    let getHints = Promise.all([
+      pokemon.getType1(),
+      pokemon.getType2(),
+      pokemon.getHeight(),
+      pokemon.getWeight(),
+      pokemon.getGeneration(),
+      pokemon.getSpecies(),
+    ]);
+    getHints.then((hintArray) => {
+      setHint1(hintArray[0]);
+      setHint2(hintArray[1]);
+      setHint3(hintArray[2]);
+      setHint4(hintArray[3]);
+      setHint5(hintArray[4]);
+      setHint6(hintArray[5]);
+    });
   };
 
   useEffect(() => {
@@ -45,18 +54,15 @@ function App() {
       setWrongGuess(false);
       setRevealed(true);
       setNumCorrect(numCorrect + 1);
-      setHintVisible(true);
       setHintCount(6);
     } else if (guess != pokemon.name) {
       setWrongGuess(true);
-      setHintVisible(true);
       setHintCount(Math.min(hintCount + 1, 6));
       setNumWrong(numWrong + 1);
     }
   }
 
   function handleHintButton() {
-    setHintVisible(true);
     if (hintCount < 6) {
       setHintCount(hintCount + 1);
     } else {
@@ -66,13 +72,11 @@ function App() {
 
   function handleQuitNext() {
     if (revealed) {
-      setHintVisible(false);
       setHintCount(0);
       setWrongGuess(false);
       setRevealed(false);
       setPokemon(new Pokemon(randomNum()));
     } else if (!revealed) {
-      setHintVisible(true);
       setHintCount(6);
       setWrongGuess(false);
       setRevealed(true);
@@ -96,7 +100,6 @@ function App() {
         hint4={hint4}
         hint5={hint5}
         hint6={hint6}
-        hintVisible={hintVisible}
       />
       <GUI
         displayName={
