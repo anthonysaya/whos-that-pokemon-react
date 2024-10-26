@@ -6,98 +6,71 @@ export class Pokemon {
   }
 
   async getHeight() {
-    return await fetch(`https://pokeapi.co/api/v2/pokemon/${this.pokedexNum}/`)
-      .then(
-        (response) => {
-          if (response.ok) {
-            return response.json();
-          }
-          throw new Error(`API call failed for #${this.pokedexNum}}.`);
-        },
-        (networkError) => console.log(networkError.message)
-      )
-      .then(async (jsonResponse) => {
-        let height = jsonResponse.height / 10;
-        return `Height: ${height}m`;
-      });
+    const response = await fetch(
+      `https://pokeapi.co/api/v2/pokemon/${this.pokedexNum}/`
+    );
+    if (!response.ok) {
+      throw new Error(`API call failed for #${this.pokedexNum}}.`);
+    }
+    const jsonResponse = await response.json();
+    let height = jsonResponse.height / 10;
+    return `Height: ${height}m`;
   }
 
   async getSpecies() {
-    return await fetch(
+    const response = await fetch(
       `https://pokeapi.co/api/v2/pokemon-species/${this.pokedexNum}/`
-    )
-      .then(
-        (response) => {
-          if (response.ok) {
-            return response.json();
-          }
-          throw new Error(`API call failed for #${this.pokedexNum}}.`);
-        },
-        (networkError) => console.log(networkError.message)
-      )
-      .then((jsonResponse) => {
-        let species = jsonResponse.genera.find(
-          (species) => species.language.name == "en"
-        );
-        return `${species.genus}`;
-      });
+    );
+    if (!response.ok) {
+      throw new Error(`API call failed for #${this.pokedexNum}}.`);
+    }
+    const jsonResponse = await response.json();
+    let species = jsonResponse.genera.find(
+      (species) => species.language.name == "en"
+    );
+    return `${species.genus}`;
   }
 
   async getType1() {
-    return await fetch(`https://pokeapi.co/api/v2/pokemon/${this.pokedexNum}/`)
-      .then(
-        (response) => {
-          if (response.ok) {
-            return response.json();
-          }
-          throw new Error(`API call failed for #${this.pokedexNum}}.`);
-        },
-        (networkError) => console.log(networkError.message)
-      )
-      .then(async (jsonResponse) => {
-        let type1 = jsonResponse.types[0].type.name;
-        type1 = type1.charAt(0).toUpperCase() + type1.slice(1);
-        return `Type 1: ${type1}`;
-      });
+    const response = await fetch(
+      `https://pokeapi.co/api/v2/pokemon/${this.pokedexNum}/`
+    );
+    if (!response.ok) {
+      throw new Error(`API call failed for #${this.pokedexNum}}.`);
+    }
+    const jsonResponse = await response.json();
+    let type1 = jsonResponse.types[0].type.name;
+    type1 = type1.charAt(0).toUpperCase() + type1.slice(1);
+    return `Type 1: ${type1}`;
   }
 
   async getType2() {
-    return await fetch(`https://pokeapi.co/api/v2/pokemon/${this.pokedexNum}/`)
-      .then(
-        (response) => {
-          if (response.ok) {
-            return response.json();
-          }
-          throw new Error(`API call failed for #${this.pokedexNum}}.`);
-        },
-        (networkError) => console.log(networkError.message)
-      )
-      .then(async (jsonResponse) => {
-        if (jsonResponse.types.length == 2) {
-          let type2 = jsonResponse.types[1].type.name;
-          type2 = type2.charAt(0).toUpperCase() + type2.slice(1);
-          return `Type 2: ${type2}`;
-        } else {
-          return `Type 2: None`;
-        }
-      });
+    const response = await fetch(
+      `https://pokeapi.co/api/v2/pokemon/${this.pokedexNum}/`
+    );
+    if (!response.ok) {
+      throw new Error(`API call failed for #${this.pokedexNum}}.`);
+    }
+    const jsonResponse = await response.json();
+    if (jsonResponse.types.length == 2) {
+      let type2 = jsonResponse.types[1].type.name;
+      type2 = type2.charAt(0).toUpperCase() + type2.slice(1);
+      return `Type 2: ${type2}`;
+    } else {
+      return `Type 2: None`;
+    }
   }
 
   async getWeight() {
-    return await fetch(`https://pokeapi.co/api/v2/pokemon/${this.pokedexNum}/`)
-      .then(
-        (response) => {
-          if (response.ok) {
-            return response.json();
-          }
-          throw new Error(`API call failed for #${this.pokedexNum}}.`);
-        },
-        (networkError) => console.log(networkError.message)
-      )
-      .then(async (jsonResponse) => {
-        let weight = jsonResponse.weight / 10;
-        return `Weight: ${weight}kg`;
-      });
+    const response = await fetch(
+      `https://pokeapi.co/api/v2/pokemon/${this.pokedexNum}/`
+    );
+    if (!response.ok) {
+      throw new Error(`API call failed for #${this.pokedexNum}}.`);
+    }
+    const jsonResponse = await response.json();
+    let weight = jsonResponse.weight / 10;
+    return `Weight: ${weight}kg`;
   }
 
   getAudioUrl() {
